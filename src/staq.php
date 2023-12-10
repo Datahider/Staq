@@ -36,12 +36,34 @@ class staq {
         }
     }
     
+    public function last() : mixed {
+        $last = new DBView("SELECT id FROM [staq_item] WHERE name = ? AND division = ? ORDER BY id DESC LIMIT 1", [$this->name, $this->division]);
+        if ($last->next()) {
+            $item = new staq_item(['id' => $last->id]);
+            $value = unserialize($item->value);
+            return $value;
+        } else {
+            throw new Exception('The staq is empty');
+        }
+    }
+    
     public function shift() : mixed {
         $first = new DBView("SELECT id FROM [staq_item] WHERE name = ? AND division = ? ORDER BY id LIMIT 1", [$this->name, $this->division]);
         if ($first->next()) {
             $item = new staq_item(['id' => $first->id]);
             $value = unserialize($item->value);
             $item->delete();
+            return $value;
+        } else {
+            throw new Exception('The staq is empty');
+        }
+    }
+    
+    public function first() : mixed {
+        $first = new DBView("SELECT id FROM [staq_item] WHERE name = ? AND division = ? ORDER BY id LIMIT 1", [$this->name, $this->division]);
+        if ($first->next()) {
+            $item = new staq_item(['id' => $first->id]);
+            $value = unserialize($item->value);
             return $value;
         } else {
             throw new Exception('The staq is empty');

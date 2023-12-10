@@ -68,4 +68,19 @@ class staqTest extends TestCase {
         $q->shift();
 
     }
+    
+    public function testFirstAndLast() {
+        
+        $staq = new staq('test');
+        $staq->clear();
+        $staq->push('first value');
+        $staq->push('second value');
+        $staq->push('third value');
+        
+        $this->assertEquals('first value', $staq->first());
+        $this->assertEquals('first value', $staq->first());
+        $this->assertEquals('third value', $staq->last());
+        $this->assertEquals('third value', $staq->last());
+        
+    }
 }
