@@ -1,0 +1,22 @@
+{
+    "name": "losthost/staq",
+    "description": "Stack and Queue object",
+    "minimum-stability": "dev",
+    "authors": [
+        {
+            "name": "drweb",
+            "email": "pio@pio.su"
+        }
+    ],
+    "require": {
+        "losthost/db": "v3.0.9-alpha"
+    },
+    "autoload": {
+        "psr-4": {
+            "losthost\\Staq\\": "src/"
+        }
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.5.2"
+    }
+}
