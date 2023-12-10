@@ -9,7 +9,7 @@
         }
     ],
     "require": {
-        "losthost/db": "v3.0.9-alpha"
+        "losthost/db": "^3.0.9"
     },
     "autoload": {
         "psr-4": {
@@ -17,6 +17,6 @@
         }
     },
     "require-dev": {
-        "phpunit/phpunit": "^10.5.2"
+        "phpunit/phpunit": "^10.4.2"
     }
 }
